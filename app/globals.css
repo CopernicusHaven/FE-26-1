@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Design Tokens ────────────────────────────────────────────── */
+:root {
+  --bg:      #0a0b0d;
+  --card:    #13151a;
+  --border:  #1e2128;
+  --text:    #f0f2f7;
+  --muted:   #6b7280;
+  --accent:  #e5383b;
+}
+
+.dark {
+  --bg:      #0a0b0d;
+  --card:    #13151a;
+  --border:  #1e2128;
+  --text:    #f0f2f7;
+  --muted:   #6b7280;
+  --accent:  #e5383b;
+}
+
+/* Light mode */
+html:not(.dark) {
+  --bg:      #f8f8f6;
+  --card:    #ffffff;
+  --border:  #e8e8e6;
+  --text:    #111114;
+  --muted:   #6b7280;
+  --accent:  #e5383b;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* ── Hide scrollbar (utility) ─────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Shimmer animation ────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
