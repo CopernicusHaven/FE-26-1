@@ -1,5 +1,4 @@
 'use client'
-
 import { useFavorites } from '@/components/providers/FavoritesProvider'
 import type { Movie } from '@/types/tmdb'
 
@@ -22,19 +21,18 @@ export function FavoriteButton({ movie, className = '' }: FavoriteButtonProps) {
       aria-label={active ? 'Remove from favorites' : 'Add to favorites'}
       title={active ? 'Remove from favorites' : 'Add to favorites'}
       className={`group flex items-center justify-center w-9 h-9 rounded-full
-        transition-all duration-200 active:scale-90
-        ${
-          active
-            ? 'bg-red-500 text-white shadow-lg shadow-red-500/30'
-            : 'bg-black/40 text-white/80 hover:bg-red-500 hover:text-white backdrop-blur-sm'
-        }
+        transition-all duration-200 active:scale-90 text-white
+        outline-none border-none
         ${className}`}
+      style={{
+        backgroundColor: active ? 'var(--accent)' : 'rgba(0,0,0,0.4)',
+      }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill={active ? 'currentColor' : 'none'}
-        stroke="currentColor"
+        stroke="white"
         strokeWidth="2"
         className="w-4 h-4 transition-transform group-hover:scale-110"
       >

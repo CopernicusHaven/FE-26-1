@@ -9,7 +9,7 @@ export default function HomeError({
 }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6 px-4">
-      <div className="text-6xl">🎬</div>
+      <div className="text-6xl">😿</div>
       <div className="text-center">
         <h2 className="font-display font-bold text-2xl mb-2" style={{ color: 'var(--text)' }}>
           Something went wrong

@@ -9,36 +9,20 @@ export function FavoritesPageClient() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      {/* Header */}
-      <div className="mb-8">
-        <h1
-          className="font-display font-bold text-3xl sm:text-4xl mb-2"
-          style={{ color: 'var(--text)' }}
-        >
-          ❤️ My Favorites
-        </h1>
-        <p className="font-body text-sm" style={{ color: 'var(--muted)' }}>
-          {favorites.length > 0
-            ? `${favorites.length} movie${favorites.length !== 1 ? 's' : ''} saved this session.`
-            : 'Your saved movies will appear here.'}
-        </p>
-      </div>
-
       {favorites.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 gap-6">
-          <div className="text-7xl">🍿</div>
           <div className="text-center">
             <h2
               className="font-display font-bold text-xl mb-2"
               style={{ color: 'var(--text)' }}
             >
-              No favorites yet
+              You don't have any favorites yet.
             </h2>
             <p
               className="font-body text-sm mb-6 max-w-xs"
               style={{ color: 'var(--muted)' }}
             >
-              Browse movies and tap the ♥ button to save them here.
+              You can find movies you like and click the heart button to save.
             </p>
             <Link
               href="/movies"
@@ -46,7 +30,7 @@ export function FavoritesPageClient() {
                 font-semibold text-sm text-white transition-all hover:opacity-90"
               style={{ backgroundColor: 'var(--accent)' }}
             >
-              Browse Movies
+              Find Movies
             </Link>
           </div>
         </div>
@@ -65,7 +49,7 @@ export function FavoritesPageClient() {
                 border: '1px solid var(--border)',
               }}
             >
-              Discover More Movies
+              Find More Movies
             </Link>
           </div>
         </>

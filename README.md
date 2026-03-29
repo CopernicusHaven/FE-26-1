@@ -1,11 +1,11 @@
-# CinemaTrack 🎬
+# DaffaCinema
 
-A cinematic movie discovery app built with **Next.js 14**, **TMDB API**, and **Tailwind CSS**.
+Built by Daffa Ramaditya by using **Next.js 14**, **TMDB API**, and **Tailwind CSS**.
 
-## Getting Started
+# 01. Starting Points
 
 1. Clone or extract the project
-2. Install dependencies:
+2. Install this:
    ```bash
    npm install
    ```
@@ -13,24 +13,24 @@ A cinematic movie discovery app built with **Next.js 14**, **TMDB API**, and **T
    ```bash
    cp .env.local.example .env.local
    ```
-4. Get your free API key at [https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api)
+4. Get your API key at [https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api)
 5. Run the development server:
    ```bash
    npm run dev
    ```
 6. Open [http://localhost:3000](http://localhost:3000)
 
-## Deployment to Vercel
+# 02. Deploy to Vercel
 
-1. Push to GitHub
+1. Push it to GitHub
 2. Import the repo in [Vercel](https://vercel.com)
 3. Add `TMDB_API_KEY` in **Project Settings > Environment Variables**
-4. Deploy!
+4. Deploy
 
-## Features
+# 03. Features Explanation
 
-- 🎬 Browse **trending** and **top-rated** movies (Server Components)
-- 🔍 **Debounced search** by movie title (Client Component)
+- Find movies and tv shows that are trending and top rated (Server Components)
+- **Debounced search** by movie title (Client Component)
 - 🏷️ **Filter by genre** with scrollable chips (Client Component)
 - ❤️ **Favorites** saved with Context API (persisted in session)
 - 🌙 **Dark / Light mode** toggle with localStorage persistence

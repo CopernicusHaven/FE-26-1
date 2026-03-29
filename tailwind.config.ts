@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        body: ['Outfit', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        display: ['Google Sans Bold', 'Google Sans Flex'],
+        body: ['Google Sans Regular', 'Google Sans Flex'],
+        mono: ['Google Sans Code', 'monospace'],
       },
       animation: {
         shimmer: 'shimmer 2s linear infinite',

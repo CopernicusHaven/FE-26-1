@@ -76,7 +76,6 @@ export function MoviesClientSection({
 
   return (
     <div>
-      {/* Controls */}
       <div className="space-y-4 mb-8">
         <SearchBar onSearch={handleSearch} placeholder="Search movies by title..." />
         <GenreFilter
@@ -86,7 +85,6 @@ export function MoviesClientSection({
         />
       </div>
 
-      {/* Result count */}
       {(currentQuery || selectedGenre) && (
         <p className="font-body text-sm mb-4" style={{ color: 'var(--muted)' }}>
           {isPending
@@ -95,7 +93,6 @@ export function MoviesClientSection({
         </p>
       )}
 
-      {/* Grid */}
       {isPending && movies.length === 0 ? (
         <SkeletonGrid count={20} />
       ) : (
@@ -111,7 +108,6 @@ export function MoviesClientSection({
         </div>
       )}
 
-      {/* Load more */}
       {!isPending && movies.length > 0 && page < totalPages && (
         <div className="flex justify-center mt-10">
           <button

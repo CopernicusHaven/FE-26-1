@@ -1,5 +1,4 @@
 'use client'
-
 import { createContext, useContext, useEffect, useState } from 'react'
 
 type Theme = 'dark' | 'light'
@@ -10,7 +9,7 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {},
 })
 
@@ -19,29 +18,23 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
-  const [mounted, setMounted] = useState(false)
+  const [theme, setTheme] = useState<Theme>('light')
 
   useEffect(() => {
-    setMounted(true)
-    const saved = localStorage.getItem('cinematrack-theme') as Theme | null
-    if (saved === 'light' || saved === 'dark') {
-      setTheme(saved)
-    }
+    const saved = localStorage.getItem('daffacinema-theme') as Theme | null
+    const initial = saved === 'light' || saved === 'dark' ? saved : 'light'
+    setTheme(initial)
+    document.documentElement.classList.toggle('dark', initial === 'dark')
   }, [])
 
-  useEffect(() => {
-    if (!mounted) return
-    const root = document.documentElement
-    if (theme === 'dark') {
-      root.classList.add('dark')
-    } else {
-      root.classList.remove('dark')
-    }
-    localStorage.setItem('cinematrack-theme', theme)
-  }, [theme, mounted])
-
-  const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'))
+  const toggleTheme = () => {
+    setTheme(prev => {
+      const next = prev === 'dark' ? 'light' : 'dark'
+      document.documentElement.classList.toggle('dark', next === 'dark')
+      localStorage.setItem('daffacinema-theme', next)
+      return next
+    })
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

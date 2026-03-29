@@ -30,7 +30,7 @@ export function MovieCard({ movie, index = 0 }: MovieCardProps) {
         animationDelay: `${index * 60}ms`,
       }}
     >
-      {/* Poster */}
+
       <div className="relative w-full aspect-[2/3] overflow-hidden bg-[var(--card)]">
         <Image
           src={getImageUrl(movie.poster_path)}
@@ -40,7 +40,6 @@ export function MovieCard({ movie, index = 0 }: MovieCardProps) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Overlay on hover */}
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style={{
@@ -49,7 +48,6 @@ export function MovieCard({ movie, index = 0 }: MovieCardProps) {
           }}
         />
 
-        {/* Rating badge */}
         <div
           className="absolute top-2.5 left-2.5 flex items-center gap-1 px-2 py-1
             rounded-lg text-xs font-mono font-bold backdrop-blur-md"
@@ -73,13 +71,11 @@ export function MovieCard({ movie, index = 0 }: MovieCardProps) {
           {rating}
         </div>
 
-        {/* Favorite button */}
         <div className="absolute top-2.5 right-2.5">
           <FavoriteButton movie={movie} />
         </div>
       </div>
 
-      {/* Info */}
       <div className="p-3">
         <h3
           className="font-body font-semibold text-sm leading-snug line-clamp-2 mb-1"
