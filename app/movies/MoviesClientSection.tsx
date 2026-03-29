@@ -77,7 +77,7 @@ export function MoviesClientSection({
   return (
     <div>
       <div className="space-y-4 mb-8">
-        <SearchBar/>
+        <SearchBar />
         <GenreFilter
           genres={genres}
           selectedGenre={selectedGenre}
