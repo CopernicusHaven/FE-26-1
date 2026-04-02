@@ -38,45 +38,77 @@ Built by Daffa Ramaditya by using **Next.js 14**, **TMDB API**, and **Tailwind C
 
 # 04. Project Structure
 ```
-app/
-  layout.tsx           # Root layout (Navbar, ThemeProvider, FavoritesProvider)
-  page.tsx             # Home (Trending + top rated)
-  loading.tsx / error.tsx
-  movies/
-    page.tsx           # Movies list (Initial data)
-    MoviesClientSection.tsx  # Search + filter
-    loading.tsx / error.tsx
-    [id]/
-      page.tsx         # Movie detail (Dynamic metadata)
-      loading.tsx / error.tsx
-  favorites/
-    page.tsx           # Favorites page
-    FavoritesPageClient.tsx
-  api/search/route.ts  # Route Handler
-
-components/
-  providers/
-    ThemeProvider.tsx    # Context: dark/light mode
-    FavoritesProvider.tsx  # Context: favorites list
-  layout/
-    Navbar.tsx           # Sticky nav with logo, links, theme toggle
-    Footer.tsx
-  ui/
-    SearchBar.tsx        # Debounced input 
-    GenreFilter.tsx      # Genre chips 
-    GenreBadge.tsx       # Read-only badge
-    FavoriteButton.tsx   # Heart toggle 
-    ThemeToggle.tsx      # Sun/moon toggle 
-    SkeletonCard.tsx     # Loading skeleton
-  movies/
-    MovieCard.tsx        # Poster + title + rating + favorite button
-    MovieGrid.tsx        # Responsive grid wrapper
-
-lib/
-  tmdb.ts              # All TMDB API fetch functions
-
-types/
-  tmdb.ts              # TypeScript interfaces
+/Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/api
+│ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/api/search
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/api/search/api-routes.ts
+│ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/api/search/route.ts
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/favorites
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/favorites/FavoritesPageClient.tsx
+│ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/favorites/page.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/hooks
+│ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/hooks/useLocalStorage.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies/[id]
+│ │ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies/[id]/error.tsx
+│ │ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies/[id]/loading.tsx
+│ │ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies/[id]/page.tsx
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies/error.tsx
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies/loading.tsx
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies/MoviesClientSection.tsx
+│ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/movies/page.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/error.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/globals.css
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/layout.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/loading.tsx
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/app/page.tsx
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/layout
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/layout/Footer.tsx
+│ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/layout/Navbar.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/movies
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/movies/MovieCard.tsx
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/movies/MovieGrid.tsx
+│ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/movies/SimilarMovies.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/providers
+│ │ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/providers/FavoritesProvider.tsx
+│ │ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/providers/ThemeProvider.tsx
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/ui
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/ui/FavoriteButton.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/ui/GenreBadge.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/ui/GenreFilter.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/ui/ScrollToTop.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/ui/SearchBar.tsx
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/ui/SkeletonCard.tsx
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/components/ui/ThemeToggle.tsx
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/lib
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/lib/tmdb.ts
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/public
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/public/fonts
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/public/fonts/GoogleSans-Bold.ttf
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/public/fonts/GoogleSans-Italic.ttf
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/public/fonts/GoogleSans-Medium.ttf
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/public/fonts/GoogleSans-MediumItalic.ttf
+│ ├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/public/fonts/GoogleSans-Regular.ttf
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/public/fonts/GoogleSansFlex.ttf
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/types
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/types/tmdb.ts
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/{app
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/{app/{api
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/{app/{api/search,movies
+│ └── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/{app/{api/search,movies/[id],favorites},components
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/.env.local
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/.env.local.example
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/.gitignore
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/next-env.d.ts
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/next.config.js
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/package-lock.json
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/package.json
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/postcss.config.js
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/README.md
+├── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/tailwind.config.ts
+└── /Users/daffaramaditya/Documents/Codes/UGM-BCC Project/ATTEMPT 1/DaffaCinema/tsconfig.json
 ```
 
 # 05. Tech Stack
