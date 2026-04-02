@@ -1,10 +1,8 @@
 # DaffaCinema
-
 Built by Daffa Ramaditya by using **Next.js 14**, **TMDB API**, and **Tailwind CSS**.
 
 # 01. Starting Points
-
-1. Clone or extract the project
+1. Clone or extract the project.
 2. Install this:
    ```bash
    npm install
@@ -18,46 +16,43 @@ Built by Daffa Ramaditya by using **Next.js 14**, **TMDB API**, and **Tailwind C
    ```bash
    npm run dev
    ```
-6. Open [http://localhost:3000](http://localhost:3000)
+6. Open [http://localhost:3000](http://localhost:3000).
 
 # 02. Deploy to Vercel
-
-1. Push it to GitHub
-2. Import the repo in [Vercel](https://vercel.com)
-3. Add `TMDB_API_KEY` in **Project Settings > Environment Variables**
-4. Deploy
+1. Push it to GitHub.
+2. Import the repo in [Vercel](https://vercel.com).
+3. Add `TMDB_API_KEY` in Project Settings.
+4. Deploy.
 
 # 03. Features Explanation
+- Find movies and tv shows that are trending and top rated.
+- Search by movie title users want to find.
+- Filter by genre of movies users want to find.
+- Favorites page to save users' favorite movies.
+- Dark and light mode toggle to make users feel comfortable to visit and scroll.
+- suitable grid, example: 2 cols for mobile, 3 for tablet or pad, and 4-5 for desktop.
+- SSR and ISR for initial data and Route Handlers for search or filter.
+- Image for all posters with proper `alt`, `width`, and `height`.
+- Static & dynamic metadata (SEO) per page.
+- `loading.tsx` skeleton loaders and `error.tsx` on every route.
 
-- Find movies and tv shows that are trending and top rated (Server Components)
-- **Debounced search** by movie title (Client Component)
-- 🏷️ **Filter by genre** with scrollable chips (Client Component)
-- ❤️ **Favorites** saved with Context API (persisted in session)
-- 🌙 **Dark / Light mode** toggle with localStorage persistence
-- 📱 **Responsive** grid: 2 cols (mobile) → 3 (tablet) → 4-5 (desktop)
-- ⚡ **SSR + ISR** for initial data, Route Handlers for search/filter
-- 🖼️ `next/image` for all posters with proper `alt`, `width`, `height`
-- 📝 **Static & dynamic metadata** (SEO) per page
-- 🔄 `loading.tsx` skeleton loaders + `error.tsx` on every route
-
-## Project Structure
-
+# 04. Project Structure
 ```
 app/
   layout.tsx           # Root layout (Navbar, ThemeProvider, FavoritesProvider)
-  page.tsx             # Home (Server Component — trending + top rated)
+  page.tsx             # Home (Trending + top rated)
   loading.tsx / error.tsx
   movies/
-    page.tsx           # Movies list (Server Component — initial data)
-    MoviesClientSection.tsx  # Search + filter (Client Component)
+    page.tsx           # Movies list (Initial data)
+    MoviesClientSection.tsx  # Search + filter
     loading.tsx / error.tsx
     [id]/
-      page.tsx         # Movie detail (Server Component + dynamic metadata)
+      page.tsx         # Movie detail (Dynamic metadata)
       loading.tsx / error.tsx
   favorites/
     page.tsx           # Favorites page
     FavoritesPageClient.tsx
-  api/search/route.ts  # Route Handler — proxies TMDB search/filter calls
+  api/search/route.ts  # Route Handler
 
 components/
   providers/
@@ -67,28 +62,27 @@ components/
     Navbar.tsx           # Sticky nav with logo, links, theme toggle
     Footer.tsx
   ui/
-    SearchBar.tsx        # Debounced input (Client Component)
-    GenreFilter.tsx      # Genre chips (Client Component)
+    SearchBar.tsx        # Debounced input 
+    GenreFilter.tsx      # Genre chips 
     GenreBadge.tsx       # Read-only badge
-    FavoriteButton.tsx   # Heart toggle (Client Component)
-    ThemeToggle.tsx      # Sun/moon toggle (Client Component)
+    FavoriteButton.tsx   # Heart toggle 
+    ThemeToggle.tsx      # Sun/moon toggle 
     SkeletonCard.tsx     # Loading skeleton
   movies/
     MovieCard.tsx        # Poster + title + rating + favorite button
     MovieGrid.tsx        # Responsive grid wrapper
 
 lib/
-  tmdb.ts              # All TMDB API fetch functions (server-side)
+  tmdb.ts              # All TMDB API fetch functions
 
 types/
   tmdb.ts              # TypeScript interfaces
 ```
 
-## Tech Stack
-
+# 05. Tech Stack
 - **Next.js 14** (App Router)
 - **TypeScript**
-- **Tailwind CSS** (dark mode via `class` strategy)
+- **Tailwind CSS** (dark mode by `class` strategy)
 - **TMDB API** (free tier)
 - **React Context API** (favorites + theme)
-- Fonts: Cormorant Garamond + Outfit + JetBrains Mono (Google Fonts)
+- **Fonts**: Google Sans
